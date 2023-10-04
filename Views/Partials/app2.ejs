@@ -1,0 +1,223 @@
+<main class="container p-0 m-0 gap-4">
+    <div class="row">
+        <div class="air-quality col-12 col-xl-5 col-lg-5 col-md-6 col-sm-12 d-flex flex-column justify-content-start align-items-stretch p-1 m-0 gap-2">
+            <div class="aqi-main content-background d-flex flex-row p-2 m-0 justify-content-center align-items-center" style="text-align: center;">
+                <% if (locals.content<51) { %>
+                    <div class="d-flex justify-content-center align-items-center p-2"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#385723" class="bi bi-emoji-grin" viewBox="0 0 16 16">
+                        <path d="M12.946 11.398A6.002 6.002 0 0 1 2.108 9.14c-.114-.595.426-1.068 1.028-.997C4.405 8.289 6.48 8.5 8 8.5s3.595-.21 4.864-.358c.602-.07 1.142.402 1.028.998a5.953 5.953 0 0 1-.946 2.258Zm-.078-2.25C11.588 9.295 9.539 9.5 8 9.5c-1.54 0-3.589-.205-4.868-.352.11.468.286.91.517 1.317A36.797 36.797 0 0 0 8 10.75a36.796 36.796 0 0 0 4.351-.285c.231-.407.407-.85.517-1.317Zm-1.36 2.416c-1.02.1-2.255.186-3.508.186-1.253 0-2.488-.086-3.507-.186A4.985 4.985 0 0 0 8 13a4.986 4.986 0 0 0 3.507-1.436ZM6.488 7c.114-.294.179-.636.179-1 0-1.105-.597-2-1.334-2C4.597 4 4 4.895 4 6c0 .364.065.706.178 1 .23-.598.662-1 1.155-1 .494 0 .925.402 1.155 1ZM12 6c0 .364-.065.706-.178 1-.23-.598-.662-1-1.155-1-.494 0-.925.402-1.155 1a2.793 2.793 0 0 1-.179-1c0-1.105.597-2 1.334-2C11.403 4 12 4.895 12 6Z"/>
+                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16Zm0-1A7 7 0 1 1 8 1a7 7 0 0 1 0 14Z"/>
+                    </svg>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center rounded" style="background-color: #C5E0B4; color: #385723;">
+                        <div class="d-flex px-3 justify-content-center align-items-center">
+                            <p style="font-size: 3rem; padding: 0; margin: 0;"><%= locals.content %></p>
+                        </div>
+                        <div class="pm2_5 d-flex p-3 flex-column justify-content-between align-items-center">
+                            <div class="d-flex pb-3 justify-content-center align-items-center" style="height: 100%;">
+                                <p style="font-size: 1rem; padding: 0; margin: 0;">Good</p>
+                            </div>
+                            <div class="d-flex p-2 rounded" style="background-color: white;">
+                                <p style="padding: 0; margin: 0;">PM2.5 : <%= Math.floor(locals.pollutant.pm2_5) %> μg/m<sup>3</sup></p>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+                <% if (locals.content>50&&locals.content<101) { %>
+                    <div class="d-flex justify-content-center align-items-center p-2"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#9C9106" class="bi bi-emoji-smile" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z"/>
+                    </svg>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center rounded" style="background-color: #F7F9AD; color: #9C9106;">
+                        <div class="d-flex px-3 justify-content-center align-items-center">
+                            <p style="font-size: 3rem; padding: 0; margin: 0;"><%= locals.content %></p>
+                        </div>
+                        <div class="pm2_5 d-flex p-3 flex-column justify-content-between align-items-center">
+                            <div class="d-flex pb-3 justify-content-center align-items-center" style="height: 100%;">
+                                <p style="font-size: 1rem; padding: 0; margin: 0;">Moderate</p>
+                            </div>
+                            <div class="d-flex p-2 rounded" style="background-color: white;">
+                                <p style="padding: 0; margin: 0;">PM2.5 : <%= Math.floor(locals.pollutant.pm2_5) %> μg/m<sup>3</sup></p>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+                <% if (locals.content>100&&locals.content<151) { %>
+                    <div class="d-flex justify-content-center align-items-center p-2"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#D05F12" class="bi bi-emoji-neutral" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M4 10.5a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0-.5.5zm3-4C7 5.672 6.552 5 6 5s-1 .672-1 1.5S5.448 8 6 8s1-.672 1-1.5zm4 0c0-.828-.448-1.5-1-1.5s-1 .672-1 1.5S9.448 8 10 8s1-.672 1-1.5z"/>
+                    </svg></div>
+                    <div class="d-flex justify-content-center align-items-center rounded" style="background-color: #FBE5D6; color: #D05F12;">
+                        <div class="d-flex px-3 justify-content-center align-items-center">
+                            <p style="font-size: 3rem; padding: 0; margin: 0;"><%= locals.content %></p>
+                        </div>
+                        <div class="pm2_5 d-flex p-3 flex-column justify-content-between align-items-center">
+                            <div class="d-flex pb-3 justify-content-center align-items-center" style="height: 100%;">
+                                <p style="font-size: 1rem; padding: 0; margin: 0;">Unhealthy for Sensitive Groups</p>
+                            </div>
+                            <div class="d-flex p-2 rounded" style="background-color: white;">
+                                <p style="padding: 0; margin: 0;">PM2.5 : <%= Math.floor(locals.pollutant.pm2_5) %> μg/m<sup>3</sup></p>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+                <% if (locals.content>150&&locals.content<201) { %>
+                    <div class="d-flex justify-content-center align-items-center p-2"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#B00000" class="bi bi-emoji-frown" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M4.285 12.433a.5.5 0 0 0 .683-.183A3.498 3.498 0 0 1 8 10.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.498 4.498 0 0 0 8 9.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z"/>
+                    </svg></div>
+                    <div class="d-flex justify-content-center align-items-center rounded" style="background-color: #FFC1C1; color: #B00000;">
+                        <div class="d-flex px-3 justify-content-center align-items-center">
+                            <p style="font-size: 3rem; padding: 0; margin: 0;"><%= locals.content %></p>
+                        </div>
+                        <div class="pm2_5 d-flex p-3 flex-column justify-content-between align-items-center">
+                            <div class="d-flex pb-3 justify-content-center align-items-center" style="height: 100%;">
+                                <p style="font-size: 1rem; padding: 0; margin: 0;">Unhealthy</p>
+                            </div>
+                            <div class="d-flex p-2 rounded" style="background-color: white;">
+                                <p style="padding: 0; margin: 0;">PM2.5 : <%= Math.floor(locals.pollutant.pm2_5) %> μg/m<sup>3</sup></p>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+                <% if (locals.content>200&&locals.content<301) { %>
+                    <div class="d-flex justify-content-center align-items-center p-2"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#4C0482" class="bi bi-emoji-tear" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14Zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16Z"/>
+                        <path d="M6.831 11.43A3.1 3.1 0 0 1 8 11.196c.916 0 1.607.408 2.25.826.212.138.424-.069.282-.277-.564-.83-1.558-2.049-2.532-2.049-.53 0-1.066.361-1.536.824.083.179.162.36.232.535.045.115.092.241.135.373ZM6 11.333C6 12.253 5.328 13 4.5 13S3 12.254 3 11.333c0-.706.882-2.29 1.294-2.99a.238.238 0 0 1 .412 0c.412.7 1.294 2.284 1.294 2.99ZM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5Zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5Zm-1.5-3A.5.5 0 0 1 10 3c1.162 0 2.35.584 2.947 1.776a.5.5 0 1 1-.894.448C11.649 4.416 10.838 4 10 4a.5.5 0 0 1-.5-.5ZM7 3.5a.5.5 0 0 0-.5-.5c-1.162 0-2.35.584-2.947 1.776a.5.5 0 1 0 .894.448C4.851 4.416 5.662 4 6.5 4a.5.5 0 0 0 .5-.5Z"/>
+                    </svg></div>
+                    <div class="d-flex justify-content-center align-items-center rounded" style="background-color: #D798FE; color: #4C0482;">
+                        <div class="d-flex px-3 justify-content-center align-items-center">
+                            <p style="font-size: 3rem; padding: 0; margin: 0;"><%= locals.content %></p>
+                        </div>
+                        <div class="pm2_5 d-flex p-3 flex-column justify-content-between align-items-center">
+                            <div class="d-flex pb-3 justify-content-center align-items-center" style="height: 100%;">
+                                <p style="font-size: 1rem; padding: 0; margin: 0;">Very Unhealthy</p>
+                            </div>
+                            <div class="d-flex p-2 rounded" style="background-color: white;">
+                                <p style="padding: 0; margin: 0;">PM2.5 : <%= Math.floor(locals.pollutant.pm2_5) %> μg/m<sup>3</sup></p>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+                <% if (locals.content>300) { %>
+                    <div class="d-flex justify-content-center align-items-center p-2"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#700000" class="bi bi-emoji-dizzy" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M9.146 5.146a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 1 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 0-.708zm-5 0a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 1 1 .708.708l-.647.646.647.646a.5.5 0 1 1-.708.708L5.5 7.207l-.646.647a.5.5 0 1 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 0-.708zM10 11a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
+                    </svg></div>
+                    <div class="d-flex justify-content-center align-items-center rounded" style="background-color: #FF8585; color: #700000;">
+                        <div class="d-flex px-3 justify-content-center align-items-center">
+                            <p style="font-size: 3rem; padding: 0; margin: 0;"><%= locals.content %></p>
+                        </div>
+                        <div class="pm2_5 d-flex p-3 flex-column justify-content-between align-items-center">
+                            <div class="d-flex pb-3 justify-content-center align-items-center" style="height: 100%;">
+                                <p style="font-size: 1rem; padding: 0; margin: 0;">Hazardous</p>
+                            </div>
+                            <div class="d-flex p-2 rounded" style="background-color: white;">
+                                <p style="padding: 0; margin: 0;">PM2.5 : <%= Math.floor(locals.pollutant.pm2_5) %> μg/m<sup>3</sup></p>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+            <div class="aqi-data content-background d-flex justify-content-center align-items-center p-1 m-0" style="height: 100%;">
+                <div class="col-12 container p-1" style="text-align: center;">
+                    <div class="row" style="font-weight: 700;">
+                        <div class="col-6" style="border-right: 1px solid #a1a1a180; padding: 5px;">Pollutants</div>
+                        <div class="col-6" style="padding: 5px;">Concentration (μg/m<sup>3</sup>)</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6" style="border-right: 1px solid #a1a1a180;">PM10</div>
+                        <div class="col-6"><%- locals.pollutant.pm10 %></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6" style="border-right: 1px solid #a1a1a180;">CO</div>
+                        <div class="col-6"><%- locals.pollutant.co %></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6" style="border-right: 1px solid #a1a1a180;">NO</div>
+                        <div class="col-6"><%- locals.pollutant.no %></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6" style="border-right: 1px solid #a1a1a180;">NO<sub>2</sub></div>
+                        <div class="col-6"><%- locals.pollutant.no2 %></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6" style="border-right: 1px solid #a1a1a180;">SO<sub>2</sub></div>
+                        <div class="col-6"><%- locals.pollutant.so2 %></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="weather col-12 col-xl-7 col-lg-7 col-md-6 col-sm-12 d-flex justify-content-center align-items-stretch p-0 m-0">
+            <div class="weather-app container">
+                <div class="row">
+                    <div class="current-temp col-xl-4 col-lg-4 col-md-12 col-sm-12 temperature d-flex flex-column justify-content-center align-items-stretch p-1 m-0">
+                        <div class="content-background d-flex align-items-center justify-content-center" style="height: 100%;">
+                            <div class="current-temp d-flex flex-column justify-content-center align-items-center">
+                                <p style="padding: 0; margin: 0;">Current Temperature</p>
+                                <p style="font-size: 3rem; padding: 0; margin: 0;"><%= Math.floor(locals.weatherData.temp) %>°C</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weather-condition col-xl-8 col-lg-8 col-md-12 col-sm-12 weather-condition d-flex justify-content-center align-items-center p-1">
+                        <div class="weather-condition content-background container">
+                            <div class="weather-condition-1 row">
+                                <div class="current-weather col-6 d-flex flex-column justify-content-center align-items-center" style="border-right: 1px solid #a1a1a180;">
+                                    <div class="weather-icon">
+                                        <img src=<%= locals.weatherIconSrc %> width=50px>
+                                    </div>
+                                    <div class="weather-name">
+                                        <p style="padding: 0; margin: 0;"><%= locals.weatherName %></p>
+                                    </div>
+                                </div>
+                                <div class="feels-like col-6 d-flex flex-column gap-2 p-2 justify-content-center align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-thermometer-half" viewBox="0 0 16 16">
+                                            <path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V6.5a.5.5 0 0 1 1 0v4.585a1.5 1.5 0 0 1 1 1.415z"/>
+                                            <path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1z"/>
+                                        </svg>
+                                        Feels like
+                                    </div>
+                                    <div class="feels-like-temp">
+                                        <p style="padding: 0; margin: 0; font-size: 1.5rem;"><%= Math.floor(locals.weatherData.feels_like) %>°C</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="weather-condition-2 row" style="border-top: 1px solid #a1a1a180;">
+                                <div class="pressure col-6 d-flex flex-column gap-2 p-2 justify-content-center align-items-center" style="border-right: 1px solid #a1a1a180;">
+                                    <div class="d-flex align-items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-speedometer2" viewBox="0 0 16 16">
+                                            <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
+                                            <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"/>
+                                          </svg>
+                                        Pressure
+                                    </div>
+                                    <div class="pressure">
+                                        <p style="padding: 0; margin: 0; font-size: 1.5rem;"><%= Math.floor(locals.weatherData.pressure) %> hPa</p>
+                                    </div>
+                                </div>
+                                <div class="humidity col-6 d-flex flex-column gap-2 p-2 justify-content-center align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-water" viewBox="0 0 16 16">
+                                            <path d="M.036 3.314a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 3.964a.5.5 0 0 1-.278-.65zm0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 6.964a.5.5 0 0 1-.278-.65zm0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 9.964a.5.5 0 0 1-.278-.65zm0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.757-.703a.5.5 0 0 1-.278-.65z"/>
+                                          </svg>
+                                        Humidity
+                                    </div>
+                                    <div class="humidity-value">
+                                        <p style="padding: 0; margin: 0; font-size: 1.5rem;"><%= Math.floor(locals.weatherData.humidity) %>%</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="map col-12 d-flex justify-content-center align-items-center p-1" style="overflow: hidden; border-radius: 10px; height: 80%;">
+                        <div class="containerImage" style="height: 100%; width: 100%; overflow: hidden; border-radius: 10px;">
+                            <img src="<%= locals.map %>">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
